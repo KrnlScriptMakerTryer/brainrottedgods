@@ -22,7 +22,7 @@
       animation: glow 2s infinite alternate;
     }
 
-    nav a {
+    nav a, #fullscreen-btn {
       display: inline-block;
       margin: 10px;
       padding: 12px 20px;
@@ -33,9 +33,10 @@
       font-weight: bold;
       transition: 0.3s;
       box-shadow: 0 0 10px #33ffff;
+      cursor: pointer;
     }
 
-    nav a:hover {
+    nav a:hover, #fullscreen-btn:hover {
       background: #33ffff;
       color: #000;
       box-shadow: 0 0 25px #ff33ff;
@@ -47,27 +48,6 @@
       animation: float 3s ease-in-out infinite;
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #ff33ff, 0 0 20px #ff66ff; }
-      to { text-shadow: 0 0 20px #33ffff, 0 0 40px #66ffff; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .random-emoji {
-      font-size: 2rem;
-      position: absolute;
-      animation: fall 6s linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-
     .logo {
       position: absolute;
       top: 20px;
@@ -77,16 +57,15 @@
       animation: spin 30s linear infinite;
     }
 
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
+    #game-container {
+      margin-top: 40px;
     }
 
-    #games iframe {
-      margin-top: 20px;
+    #fullscreen-game {
+      width: 100vw;
+      height: 100vh;
       border: none;
-      border-radius: 12px;
-      box-shadow: 0 0 20px #ff33ff;
+      display: none;
     }
 
   </style>
@@ -101,15 +80,15 @@
     <a href="../main/">Main Hub</a>
   </nav>
 
-  <p>pick a game and meltmaxx 🫱🫱</p>
+  <p>click below for full chaos 🫱🫱</p>
 
-  <div id="games">
-    <!-- Example embedded game (replace with any Brainrot game you find) -->
-    <iframe src="blob:https://1460629336-atari-embeds.googleusercontent.com/fcf33f09-6dfc-44af-ba71-b374c761fecc" width="800" height="600"></iframe>
+  <div id="game-container">
+    <button id="fullscreen-btn">Play Fullscreen Blob Game</button>
+    <iframe id="fullscreen-game"></iframe>
   </div>
 
   <script>
-    // spawn falling emojis randomly
+    // falling emojis
     const emojis = ["🥀","🔥","😂","🫱","42","67"];
     function dropEmoji() {
       const span = document.createElement("span");
@@ -120,6 +99,18 @@
       setTimeout(() => span.remove(), 6000);
     }
     setInterval(dropEmoji, 800);
+
+    // fullscreen blob game
+    const button = document.getElementById('fullscreen-btn');
+    const iframe = document.getElementById('fullscreen-game');
+    button.addEventListener('click', () => {
+      const blobHTML = `<html><body style="margin:0;"><iframe src="blob:https://1460629336-atari-embeds.googleusercontent.com/fcf33f09-6dfc-44af-ba71-b374c761fecc" width="100%" height="100%" frameborder="0"></iframe></body></html>`;
+      const blob = new Blob([blobHTML], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      iframe.src = url;
+      iframe.style.display = 'block';
+      button.style.display = 'none';
+    });
   </script>
 
 </body>
