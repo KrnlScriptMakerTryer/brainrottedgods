@@ -3,15 +3,114 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Main Hub 🥀🔥</title>
+  <title>brainrotted gods hub 🥀🔥</title>
   <link rel="stylesheet" href="../style.css">
+  <style>
+    body {
+      background: linear-gradient(135deg, #000, #111, #222);
+      color: #ff33ff;
+      font-family: 'Comic Sans MS', cursive, sans-serif;
+      text-align: center;
+      overflow-x: hidden;
+      margin: 0;
+      padding: 0;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-top: 60px;
+      animation: glow 2s infinite alternate;
+    }
+
+    nav a {
+      display: inline-block;
+      margin: 10px;
+      padding: 12px 20px;
+      border-radius: 12px;
+      background: #222;
+      color: #33ffff;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+      box-shadow: 0 0 10px #33ffff;
+    }
+
+    nav a:hover {
+      background: #33ffff;
+      color: #000;
+      box-shadow: 0 0 25px #ff33ff;
+    }
+
+    p {
+      margin-top: 30px;
+      font-size: 1.3rem;
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes glow {
+      from { text-shadow: 0 0 10px #ff33ff, 0 0 20px #ff66ff; }
+      to { text-shadow: 0 0 20px #33ffff, 0 0 40px #66ffff; }
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+
+    .random-emoji {
+      font-size: 2rem;
+      position: absolute;
+      animation: fall 6s linear infinite;
+    }
+
+    @keyframes fall {
+      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
+      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
+    }
+
+    .logo {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 120px;
+      filter: drop-shadow(0 0 10px #ff33ff) drop-shadow(0 0 20px #33ffff);
+      animation: spin 30s linear infinite;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+
+  </style>
 </head>
 <body>
-  <h1>brainrotted gods hub 🫱🫱</h1>
+
+  <img src="https://i.imgur.com/PdE44g8.png" alt="brainrotted gods logo" class="logo">
+
+  <h1>brainrotted gods hub 🥀🔥</h1>
+  
   <nav>
-    <a href="../login/">Login</a>
-    <a href="../signup/">Signup</a>
+    <a href="#">unc zone</a>
+    <a href="#">meltmaxxing</a>
+    <a href="#">skibidi</a>
   </nav>
-  <p>welcome boi and welcome to the challenge zone😂🫱🫱</p>
+
+  <p>welcome to the chaos boi 🫱🫱</p>
+
+  <script>
+    // spawn falling emojis randomly
+    const emojis = ["🥀","🔥","😂","🫱","42","67","🥭"];
+    function dropEmoji() {
+      const span = document.createElement("span");
+      span.className = "random-emoji";
+      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = Math.random() * 100 + "vw";
+      document.body.appendChild(span);
+      setTimeout(() => span.remove(), 6000);
+    }
+    setInterval(dropEmoji, 800);
+  </script>
+
 </body>
 </html>
