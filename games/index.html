@@ -1,124 +1,103 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brainrot Games 🥀🔥</title>
-  <link rel="stylesheet" href="../style.css">
-  <style>
-    body {
-      background: linear-gradient(135deg, #000, #111, #222);
-      color: #ff33ff;
-      font-family: 'Comic Sans MS', cursive, sans-serif;
-      text-align: center;
-      overflow-x: hidden;
-      margin: 0;
-      padding: 0;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-top: 60px;
-      animation: glow 2s infinite alternate;
-    }
-
-    nav a, #open-blob {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 20px;
-      border-radius: 12px;
-      background: #222;
-      color: #33ffff;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.3s;
-      box-shadow: 0 0 10px #33ffff;
-      cursor: pointer;
-    }
-
-    nav a:hover, #open-blob:hover {
-      background: #33ffff;
-      color: #000;
-      box-shadow: 0 0 25px #ff33ff;
-    }
-
-    p {
-      margin-top: 30px;
-      font-size: 1.3rem;
-      animation: float 3s ease-in-out infinite;
-    }
-
-    .logo {
-      position: absolute;
-      top: 20px;
-      right: 20px;
-      width: 120px;
-      filter: drop-shadow(0 0 10px #ff33ff) drop-shadow(0 0 20px #33ffff);
-      animation: spin 30s linear infinite;
-    }
-
-    @keyframes glow {
-      from { text-shadow: 0 0 10px #ff33ff, 0 0 20px #ff66ff; }
-      to { text-shadow: 0 0 20px #33ffff, 0 0 40px #66ffff; }
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .random-emoji {
-      font-size: 2rem;
-      position: absolute;
-      animation: fall 6s linear infinite;
-    }
-
-    @keyframes fall {
-      0% { transform: translateY(-50px) rotate(0deg); opacity: 1; }
-      100% { transform: translateY(100vh) rotate(360deg); opacity: 0; }
-    }
-
-    @keyframes spin {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(360deg); }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Brainrot Games 🥀🔥</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+body {
+  background: linear-gradient(135deg,#000,#111,#222);
+  color:#ff33ff;
+  font-family:'Comic Sans MS',cursive,sans-serif;
+  text-align:center;
+  overflow-x:hidden;
+  margin:0;
+  padding:0;
+}
+h1{
+  font-size:3rem;
+  margin-top:60px;
+  animation:glow 2s infinite alternate;
+}
+nav a,#play-fullscreen{
+  display:inline-block;
+  margin:10px;
+  padding:12px 20px;
+  border-radius:12px;
+  background:#222;
+  color:#33ffff;
+  text-decoration:none;
+  font-weight:bold;
+  transition:.3s;
+  box-shadow:0 0 10px #33ffff;
+  cursor:pointer;
+}
+nav a:hover,#play-fullscreen:hover{
+  background:#33ffff;
+  color:#000;
+  box-shadow:0 0 25px #ff33ff;
+}
+p{
+  margin-top:30px;
+  font-size:1.3rem;
+  animation:float 3s ease-in-out infinite;
+}
+.logo{
+  position:absolute;
+  top:20px;
+  right:20px;
+  width:120px;
+  filter:drop-shadow(0 0 10px #ff33ff) drop-shadow(0 0 20px #33ffff);
+  animation:spin 30s linear infinite;
+}
+@keyframes glow{from{text-shadow:0 0 10px #ff33ff,0 0 20px #ff66ff;}to{text-shadow:0 0 20px #33ffff,0 0 40px #66ffff;}}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+@keyframes fall{0%{transform:translateY(-50px) rotate(0deg);opacity:1;}100%{transform:translateY(100vh) rotate(360deg);opacity:0;}}
+@keyframes spin{0%{transform:rotate(0deg);}100%{transform:rotate(360deg);}}
+.random-emoji{font-size:2rem;position:absolute;animation:fall 6s linear infinite;}
+</style>
 </head>
 <body>
 
-  <img src="https://i.imgur.com/PdE44g8.png" alt="brainrotted gods logo" class="logo">
+<img src="https://i.imgur.com/PdE44g8.png" class="logo" alt="brainrotted gods logo">
 
-  <h1>brainrot games hub 🥀🔥</h1>
-  
-  <nav>
-    <a href="../main/">Main Hub</a>
-  </nav>
+<h1>brainrot games hub 🥀🔥</h1>
 
-  <p>click below to open the Brainrot merge game 🫱🫱</p>
+<nav>
+  <a href="../main/">Main Hub</a>
+</nav>
 
-  <button id="open-blob">Play Blob Game</button>
+<p>click below to meltmaxx the game 🫱🫱</p>
 
-  <script>
-    // falling emojis
-    const emojis = ["🥀","🔥","😂","🫱","42","67"];
-    function dropEmoji() {
-      const span = document.createElement("span");
-      span.className = "random-emoji";
-      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
-      span.style.left = Math.random() * 100 + "vw";
-      document.body.appendChild(span);
-      setTimeout(() => span.remove(), 6000);
-    }
-    setInterval(dropEmoji, 800);
+<button id="play-fullscreen">Play Fullscreen Brainrot Game</button>
 
-    // open blob in new tab
-    document.getElementById('open-blob').addEventListener('click', () => {
-      window.open(
-        'blob:https://1460629336-atari-embeds.googleusercontent.com/fcf33f09-6dfc-44af-ba71-b374c761fecc',
-        '_blank'
-      );
-    });
-  </script>
+<script>
+// falling emojis
+const emojis=["🥀","🔥","😂","🫱","42","67"];
+function dropEmoji(){
+  const span=document.createElement("span");
+  span.className="random-emoji";
+  span.textContent=emojis[Math.floor(Math.random()*emojis.length)];
+  span.style.left=Math.random()*100+"vw";
+  document.body.appendChild(span);
+  setTimeout(()=>span.remove(),6000);
+}
+setInterval(dropEmoji,800);
+
+// classic fullscreen about:blank method
+document.getElementById('play-fullscreen').addEventListener('click',()=>{
+  const newTab=window.open('about:blank','_blank');
+  const gameHTML=`<!DOCTYPE html>
+  <html lang="en">
+  <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>Brainrot Game 🥀🔥</title></head>
+  <body style="margin:0;">
+  <iframe src="https://cdn.kiz10.com/upload/games/htmlgames/steal-brainrot-monsters-/index.html" style="width:100vw;height:100vh;border:none;"></iframe>
+  </body></html>`;
+  newTab.document.write(gameHTML);
+  newTab.document.close();
+});
+</script>
 
 </body>
 </html>
